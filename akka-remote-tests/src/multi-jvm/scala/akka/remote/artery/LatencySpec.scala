@@ -22,16 +22,16 @@ import akka.stream.scaladsl.Source
 import akka.stream.ThrottleMode
 
 object LatencySpec extends MultiNodeConfig {
-  val first = role("first")
-  val second = role("second")
+  val first = role("nid00040")
+  val second = role("nid00041")
 
   val barrierTimeout = 5.minutes
 
   commonConfig(debugConfig(on = false).withFallback(
     ConfigFactory.parseString(s"""
        # for serious measurements you should increase the totalMessagesFactor (30) and repeatCount (3)
-       akka.test.LatencySpec.totalMessagesFactor = 1.0
-       akka.test.LatencySpec.repeatCount = 1
+       akka.test.LatencySpec.totalMessagesFactor = 30.0
+       akka.test.LatencySpec.repeatCount = 3
        akka.test.LatencySpec.real-message = off
        akka {
          loglevel = ERROR

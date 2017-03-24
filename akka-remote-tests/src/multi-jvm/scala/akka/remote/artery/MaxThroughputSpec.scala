@@ -25,15 +25,15 @@ import com.typesafe.config.ConfigFactory
 import akka.remote.artery.compress.CompressionProtocol.Events.ReceivedActorRefCompressionTable
 
 object MaxThroughputSpec extends MultiNodeConfig {
-  val first = role("first")
-  val second = role("second")
+  val first = role("nid00040")
+  val second = role("nid00041")
 
   val barrierTimeout = 5.minutes
 
   commonConfig(debugConfig(on = false).withFallback(
     ConfigFactory.parseString(s"""
        # for serious measurements you should increase the totalMessagesFactor (20)
-       akka.test.MaxThroughputSpec.totalMessagesFactor = 10.0
+       akka.test.MaxThroughputSpec.totalMessagesFactor = 20.0
        akka.test.MaxThroughputSpec.real-message = off
        akka {
          loglevel = INFO
