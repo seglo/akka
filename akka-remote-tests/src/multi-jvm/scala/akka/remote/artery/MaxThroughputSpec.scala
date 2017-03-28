@@ -25,8 +25,8 @@ import com.typesafe.config.ConfigFactory
 import akka.remote.artery.compress.CompressionProtocol.Events.ReceivedActorRefCompressionTable
 
 object MaxThroughputSpec extends MultiNodeConfig {
-  val first = role("nid00040")
-  val second = role("nid00041")
+  val first = role("first")
+  val second = role("second")
 
   val barrierTimeout = 5.minutes
 
